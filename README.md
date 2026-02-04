@@ -1,50 +1,147 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Geolocator Application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel + React + Vite application for geolocation mapping with interactive features.
 
-## About Laravel
+## Prerequisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Before setting up the project locally, ensure you have the following installed:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **PHP** 8.1+
+- **Composer** (PHP package manager)
+- **Node.js** 16+ (comes with npm)
+- **npm** 8+
+- **XAMPP** or any local PHP server setup (optional for local testing)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Local Setup Instructions
 
-## Learning Laravel
+Follow these steps to get the project running on your local machine:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 1. Clone the Repository
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone <repository-url>
+cd geolocator
+```
 
-## Laravel Sponsors
+### 2. Install PHP Dependencies
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+composer install
+```
 
-### Premium Partners
+### 3. Install JavaScript Dependencies
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Install React, Vite plugin, and mapping libraries:
+
+```bash
+npm install
+npm install --save-dev react react-dom
+npm install --save-dev @vitejs/plugin-react
+npm install react-leaflet@4 leaflet --legacy-peer-deps
+```
+
+### 4. Install Laravel Breeze Authentication
+
+```bash
+composer require laravel/breeze --dev
+```
+
+### 5. Environment Configuration
+
+Copy the `.env.example` file to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Generate the application key:
+
+```bash
+php artisan key:generate
+```
+
+Update your `.env` file with your database credentials and any other required configuration.
+
+### 6. Database Setup
+
+Create the database and run migrations:
+
+```bash
+php artisan migrate
+```
+
+(Optional) Seed the database with sample data:
+
+```bash
+php artisan db:seed
+```
+
+### 7. Build Front-end Assets
+
+```bash
+npm run dev
+```
+
+Or for production build:
+
+```bash
+npm run build
+```
+
+## Running the Application
+
+### Development Server
+
+Start the Laravel development server:
+
+```bash
+php artisan serve
+```
+
+The application will be available at `http://localhost:8000`
+
+### Watch Mode for Front-end
+
+In another terminal, keep front-end assets updated during development:
+
+```bash
+npm run dev
+```
+
+## Testing
+
+Run the test suite:
+
+```bash
+php artisan test
+```
+
+Or use PHPUnit directly:
+
+```bash
+./vendor/bin/phpunit
+```
+
+## Project Structure
+
+- **`app/`** - Laravel application code (Controllers, Models, Middleware)
+- **`resources/js/`** - React components and JavaScript code
+- **`resources/views/`** - Blade templates
+- **`routes/`** - Application routes
+- **`database/`** - Migrations and seeders
+- **`public/`** - Public assets and index.php
+
+## Technologies Used
+
+- **Laravel** - Backend framework
+- **React** - Frontend UI library
+- **Vite** - Build tool and dev server
+- **React Leaflet** - Interactive maps
+- **Tailwind CSS** - Utility-first CSS framework
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Thank you for considering contributing to this project! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
 ## Code of Conduct
 
