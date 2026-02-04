@@ -6,10 +6,10 @@ A Laravel + React + Vite application for geolocation mapping with interactive fe
 
 Before setting up the project locally, ensure you have the following installed:
 
-- **PHP** 8.1+
+- **PHP**  8.2.12
 - **Composer** (PHP package manager)
-- **Node.js** 16+ (comes with npm)
-- **npm** 8+
+- **Node.js** v22.14.0 (comes with npm)
+- **npm** 10.9.2
 - **XAMPP** or any local PHP server setup (optional for local testing)
 
 ## Local Setup Instructions
